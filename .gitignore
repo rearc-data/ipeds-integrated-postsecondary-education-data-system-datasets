@@ -9,6 +9,7 @@ Dockerfile
 docker-compose.yml
 node_modules
 adx/Dockerfile
+Makefile
 
 # Distribution / packaging
 .Python
