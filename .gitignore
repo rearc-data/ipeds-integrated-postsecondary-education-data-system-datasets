@@ -10,6 +10,7 @@ docker-compose.yml
 node_modules
 adx/Dockerfile
 Makefile
+.noopEnv
 
 # Distribution / packaging
 .Python

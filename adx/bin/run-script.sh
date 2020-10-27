@@ -68,7 +68,7 @@ python src/create_dataset_revision.py \
     --product_id "$PRODUCT_ID"
 
 echo "check dataset revision status"
-DATASET_REVISION_STATUS=$(aws dataexchange list-data-set-revisions --data-set-id "$DATASET_ID" --region "$REGION" --query "sort_by(Revisions, &CreatedAt)[-1].Finalized"$PROFILE)
+DATASET_REVISION_STATUS=$(aws dataexchange list-data-set-revisions --data-set-id "$DATASET_ID" --region "$REGION" --query "sort_by(Revisions, &CreatedAt)[-1].Finalized")
 
 if [[ $DATASET_REVISION_STATUS == "true" ]]
 then
