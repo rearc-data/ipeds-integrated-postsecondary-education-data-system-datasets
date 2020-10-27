@@ -7,6 +7,8 @@ bin/chromium
 run.sh
 Dockerfile
 docker-compose.yml
+node_modules
+adx/Dockerfile
 
 # Distribution / packaging
 .Python
