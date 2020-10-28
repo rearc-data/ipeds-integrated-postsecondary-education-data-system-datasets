@@ -26,5 +26,7 @@ COPY ./ .
 RUN chmod a+x ./bin/*
 CMD [ "/bin/bash", "./bin/run-script.sh" ]
 
+MEMORY 2048
+
 # LIFECYCLE beforeStartingServices
 # CRON 0 0 * * *
