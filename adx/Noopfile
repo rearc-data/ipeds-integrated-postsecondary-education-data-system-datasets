@@ -1,4 +1,4 @@
-COMPONENT createDataset task
+COMPONENT createDataset service
   
 FROM python:3.8
 WORKDIR app
