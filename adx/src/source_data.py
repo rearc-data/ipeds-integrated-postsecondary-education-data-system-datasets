@@ -232,14 +232,4 @@ def source_dataset(source_data_url, s3_bucket, dataset_name):
 #     print(s3_bucket)
 #     print(dataset_name)
 
-#     # SOURCE_DATA_URL=https://nces.ed.gov/ipeds/datacenter/Default.aspx?gotoReportId=7&amp;fromIpeds=true
-
-#     # S3_BUCKET='rearc-data-provider'
-#     # DATA_SET_NAME='ipeds-integrated-postsecondary-education-data-system-data'
-#     # DATA_SET_ARN=''
-#     # PRODUCT_NAME='Integrated Postsecondary Education Data System (IPEDS) by NCES'
-#     # PRODUCT_ID='DEFAULT'
-#     # REGION='us-east-1'
-#     # AWS_ACCESS_KEY_ID=AKIA3S3MJ47AU6AM2CXZ
-#     # AWS_SECRET_ACCESS_KEY=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
 #     source_dataset(source_data_url, s3_bucket, dataset_name)
