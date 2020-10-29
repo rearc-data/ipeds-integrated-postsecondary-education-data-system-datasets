@@ -10,7 +10,7 @@ You can subscribe to the AWS Data Exchange product utilizing the automation feat
 This product provides complete data of the Integrated Postsecondary Education Data System (IPEDS) published by the National Center for Education Statistics (NCES). Use cases include historical analysis of the postsecondary education and the current status of various relevant metrics.
 
 #### Data Source
-There are 1115 data files in CSV as well as a meta file for each data file in XSLS format. The data files are organized by survey and year. Provisonal and final data files are included for years where both provisional and final have been released. README files are also included to offer context on data fields used throughout the dataset files. 
+There are 1000+ data files in CSV as well as a meta file for each data file in XSLS format. The data files are named based on survey type and year. Provisonal and final data files are included for years where both provisional and final have been released. README files are also included to offer context on data fields used throughout the dataset files. 
 
 For most updated details on availability of provisional and final versions per survey and year please visit the [IPEDS webpage](https://nces.ed.gov/ipeds/datacenter/DataFiles.aspx?goToReportId=7). Below is the status of files as of October 2020. 
 

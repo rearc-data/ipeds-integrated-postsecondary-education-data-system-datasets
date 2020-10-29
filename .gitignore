@@ -11,6 +11,7 @@ node_modules
 adx/Dockerfile
 Makefile
 .noopEnv
+tmp/
 
 # Distribution / packaging
 .Python

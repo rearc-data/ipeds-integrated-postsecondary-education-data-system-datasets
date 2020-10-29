@@ -56,7 +56,7 @@ fi
 echo "DATASET_ARN: $DATASET_ARN"
 echo "DATASET_ID: $DATASET_ID"
 
-echo "Unzipping chromedriver"
+# echo "Unzipping chromedriver"
 # if [[ -f util/chromium.zip ]]; then
 #   cd util/
 #   ls 
@@ -67,6 +67,7 @@ echo "Unzipping chromedriver"
 # fi
 
 # python src/source_data.py
+# exit 0
 
 echo "create a dataset revision if there is an update to the source data"
 python src/create_dataset_revision.py \

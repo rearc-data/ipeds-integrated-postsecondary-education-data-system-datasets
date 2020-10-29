@@ -183,17 +183,13 @@ def source_dataset(source_data_url, s3_bucket, dataset_name):
     if not os.path.exists(data_dir):
         os.mkdir(data_dir)
 
-    # i = 0
     for row in data:
         data_link = row['Data File'][0]['link']
         meta_link = row['Dictionary'][0]['link']
 
         download_file(data_link, data_dir)
         download_file(meta_link, data_dir)
-        # i += 1
-        # if i > 3:
-        #     break
-
+        break
 
     s3_uploads = []
     asset_list = []
@@ -230,7 +226,7 @@ def source_dataset(source_data_url, s3_bucket, dataset_name):
 # if __name__ == '__main__':
 #     source_data_url = os.getenv('SOURCE_DATA_URL', 'https://nces.ed.gov/ipeds/datacenter/Default.aspx?gotoReportId=7&amp;fromIpeds=true')
 #     s3_bucket = os.getenv('S3_BUCKET', 'rearc-data-provider')
-#     dataset_name = os.getenv('DATA_SET_NAME', 'ipeds-integrated-postsecondary-education-data-system-data')
+#     dataset_name = os.getenv('DATA_SET_NAME', 'ipeds-integrated-postsecondary-education-data-system')
 
 #     print(source_data_url)
 #     print(s3_bucket)
