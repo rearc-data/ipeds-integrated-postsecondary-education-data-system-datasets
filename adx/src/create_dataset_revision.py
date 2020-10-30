@@ -72,15 +72,15 @@ def jobs_handler(data):
             if get_job_response['State'] == 'ERROR':
                 job_errors = get_job_response['Errors']
                 raise Exception(
-                    'JobId: {} failed with errors:\n{}'.format(job_id, job_errors))
+                    'JobId: {} failed with errors:\n{}\n{}'.format(job_id, job_errors, data))
             # Sleep to ensure we don't get throttled by the GetJob API.
             time.sleep(.5)
 
 
 def create_dataset_revision():
-
+    POOL_SIZE = 10
     asset_list = source_dataset(args.source_data_url, args.s3_bucket, args.dataset_name)
-    asset_lists = [asset_list[i:i+100] for i in range(0, len(asset_list), 100)]
+    asset_lists = [asset_list[i:i+POOL_SIZE] for i in range(0, len(asset_list), POOL_SIZE)]
 
     if type(asset_lists) == list:
 
@@ -103,8 +103,11 @@ def create_dataset_revision():
                 'total_jobs': str(len(asset_lists))
             }
 
-        with (Pool(10)) as p:
-            p.map(jobs_handler, asset_lists)
+        asset_lists_list = [asset_lists[i:i+10] for i in range(0, len(asset_lists), 10)]
+        num_10_pools = len(asset_lists_list)
+        for i in range(num_10_pools):
+            with (Pool(10)) as p:
+                p.map(jobs_handler, asset_lists_list[i])
 
         update_revision_response = dataexchange.update_revision(
             DataSetId=args.dataset_id,

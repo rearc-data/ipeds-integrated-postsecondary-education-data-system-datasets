@@ -187,9 +187,9 @@ def source_dataset(source_data_url, s3_bucket, dataset_name):
         data_link = row['Data File'][0]['link']
         meta_link = row['Dictionary'][0]['link']
 
-        download_file(data_link, data_dir)
-        download_file(meta_link, data_dir)
-        break
+        # download_file(data_link, data_dir)
+        # download_file(meta_link, data_dir)
+        # break
 
     s3_uploads = []
     asset_list = []
@@ -203,8 +203,9 @@ def source_dataset(source_data_url, s3_bucket, dataset_name):
             print(file_location)
             new_s3_key = os.path.join(dataset_name, 'dataset', obj_name)
             print('checking hash')
+            is_file = os.path.isfile(file_location) and not filename.startswith('.') 
             has_changes = md5_compare(s3, s3_bucket, new_s3_key, file_location)
-            if has_changes:
+            if is_file and has_changes:
                 s3.upload_file(file_location, s3_bucket, new_s3_key)
                 print('Uploaded: ' + filename)
             else:
