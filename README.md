@@ -4,7 +4,7 @@
 
 ### Integrated Postsecondary Education Data System (IPEDS) published by the National Center for Education Statistics (NCES)
 
-You can subscribe to the AWS Data Exchange product utilizing the automation featured in this repository by visiting [https://aws.amazon.com/marketplace/pp/prodview-](https://aws.amazon.com/marketplace/pp/prodview-).
+You can subscribe to the AWS Data Exchange product utilizing the automation featured in this repository by visiting [https://aws.amazon.com/marketplace/pp/prodview-dl2w2zcthbqrc](https://aws.amazon.com/marketplace/pp/prodview-dl2w2zcthbqrc).
 
 ## Main Overview
 This product provides complete data of the Integrated Postsecondary Education Data System (IPEDS) published by the National Center for Education Statistics (NCES). Use cases include historical analysis of the postsecondary education and the current status of various relevant metrics.
