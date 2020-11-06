@@ -173,7 +173,7 @@ def download_file(file_url, target_dir):
 
 def source_dataset(source_data_url, s3_bucket, dataset_name):
     """Download the source data from URL and put it in S3"""
-    print('Environment Variables: \n{}'.format(os.environ))
+    # print('Environment Variables: \n{}'.format(os.environ))
 
     print('Getting page source')
     page_source = get_page_source_after_click(source_data_url)
