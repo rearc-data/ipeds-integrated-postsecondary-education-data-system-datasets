@@ -105,6 +105,8 @@ def get_file_info(page_source):
     tr_selectors = soup.find_all('tr', class_=tr_class)
     headers = headers[-len(tr_selectors[0])+2:]
     print(headers)
+
+    this_year = datetime.datetime.now().year
     for tr_selector in tr_selectors:
         td_selectors = tr_selector.find_all('td')
         row = {}
@@ -121,7 +123,9 @@ def get_file_info(page_source):
                     tmp['name'] = attr_name
                     tmp['href'] = a_selector['href']
                     row[header].append(tmp)
-        data.append(row)
+
+        if int(row['Year']) >= this_year-1:
+            data.append(row)
 
     for i, row in enumerate(data):
         print(row['Data File'][0]['href'])
@@ -176,6 +180,7 @@ def source_dataset(source_data_url, s3_bucket, dataset_name):
 
     print('Getting data file info')
     data = get_file_info(page_source)
+    print(data)
 
     s3 = boto3.client('s3')
 
@@ -187,8 +192,8 @@ def source_dataset(source_data_url, s3_bucket, dataset_name):
         data_link = row['Data File'][0]['link']
         meta_link = row['Dictionary'][0]['link']
 
-        # download_file(data_link, data_dir)
-        # download_file(meta_link, data_dir)
+        download_file(data_link, data_dir)
+        download_file(meta_link, data_dir)
         # break
 
     s3_uploads = []
