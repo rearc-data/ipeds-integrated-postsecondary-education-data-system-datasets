@@ -35,6 +35,7 @@ def etag_compare(filename, etag):
 def md5_compare(s3, bucket_name, s3_key, filename):
     # Get the file metadata from s3
     # If the file does not exist, return True for changes found
+    obj_dict = None
     try:
         obj_dict = s3.head_object(Bucket=bucket_name, Key=s3_key)
     except botocore.exceptions.ClientError as e:
