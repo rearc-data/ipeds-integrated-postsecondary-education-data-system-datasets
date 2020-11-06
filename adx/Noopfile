@@ -1,4 +1,4 @@
-COMPONENT createDataset service
+COMPONENT createDataset task
   
 FROM python:3.8
 WORKDIR app
@@ -22,11 +22,15 @@ RUN wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O /
     chmod +x /usr/local/bin/jq
 RUN pip install -r requirements.txt
 
-COPY ./ .
+COPY ./dataset-description.md ./dataset-description.md
+COPY ./product-description.md ./product-description.md
+COPY ./bin ./bin
+COPY ./src ./src
+
 RUN chmod a+x ./bin/*
 CMD [ "/bin/bash", "./bin/run-script.sh" ]
 
 MEMORY 2048
 
-# LIFECYCLE beforeStartingServices
-# CRON 0 0 * * *
+LIFECYCLE beforeStartingServices
+CRON 0 0 * * *
