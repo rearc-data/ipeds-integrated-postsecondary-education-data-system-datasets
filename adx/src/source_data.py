@@ -134,7 +134,8 @@ def get_file_info(page_source):
         data[i]['Dictionary'][0]['link'] = os.path.join(base_data_url, row['Dictionary'][0]['href'])
 
     print(len(data))
-    print(data[0])
+    if len(data):
+        print(data[0])
 
     return data
 
